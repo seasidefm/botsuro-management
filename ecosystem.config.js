@@ -7,6 +7,8 @@ module.exports = {
     {
       name: "botsuro-management",
       cwd: "/home/duke_ferdinand/apps/botsuro-management",
+      exec_mode: "cluster",
+      instances: 2,
       script: "npm",
       args: "start",
       env: {
