@@ -5,7 +5,7 @@ const getInitialSongs = async function (): Promise<
   { data: StoredSong[]; error: undefined } | { error: string; data: undefined }
 > {
   try {
-    return await fetch("http://localhost:3000/api/missing-songs", {
+    return await fetch(`${process.env.API_HOST}/api/missing-songs`, {
       cache: "no-store",
     }).then((res) => res.json());
   } catch (e) {
