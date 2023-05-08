@@ -1,4 +1,4 @@
-import { config } from "dotenv";
+const { config } = require("dotenv");
 
 const { parsed } = config({ path: ".env.local" });
 
