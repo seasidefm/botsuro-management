@@ -1,5 +1,8 @@
-import "./globals.css";
+import { Suspense } from "react";
 import { Inter } from "next/font/google";
+import MissingSongsLoading from "./@missing/loading";
+
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -8,7 +11,10 @@ export const metadata = {
   description: "The management app for Botsuro2",
 };
 
-export default function RootLayout(props: { children: React.ReactNode }) {
+export default function RootLayout(props: {
+  children: React.ReactNode;
+  missing: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <head>
@@ -28,7 +34,10 @@ export default function RootLayout(props: { children: React.ReactNode }) {
           </header>
 
           <main className="flex flex-col flex-1 items-center justify-between p-6">
-            {props.children}
+            {/* {props.children} */}
+            <Suspense fallback={<MissingSongsLoading />}>
+              {props.missing}
+            </Suspense>
           </main>
 
           <footer className={`text-center mt-auto h-28`}>
