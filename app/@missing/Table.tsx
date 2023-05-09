@@ -1,6 +1,13 @@
 "use client";
 
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import {
+  faUpRightFromSquare,
+  faCheck,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { StoredSong } from "@prisma/client";
+import Link from "next/link";
 
 interface MissingSongQueueProps {
   missingSongs: StoredSong[];
@@ -31,10 +38,24 @@ export const MissingSongTable = (props: MissingSongQueueProps) => {
                 {song.isUploaded ? "Uploaded" : "Not Uploaded"}
               </td>
               <td className={`p-3 flex justify-center`}>
-                <button
-                  className={`bg-blue-600 hover:bg-blue-700 p-2 px-4 rounded-md`}
+                <Link
+                  href="https://console.acrcloud.com/avr?region=us-west-2#/file-buckets/City%20Pop?id=20056&metadata_template=title,artist,album,year"
+                  target="_blank"
                 >
-                  Mark Uploaded
+                  <button
+                    className={`bg-blue-500 hover:bg-blue-600 p-2 px-3 rounded-md`}
+                  >
+                    <FontAwesomeIcon icon={faUpRightFromSquare} />
+                  </button>
+                </Link>
+
+                <button
+                  className={`bg-green-600 hover:bg-green-700 p-2 px-3 rounded-md ml-2`}
+                >
+                  <FontAwesomeIcon icon={faCheck} />
+                </button>
+                <button className={`bg-red-600 p-2 px-3 rounded-md ml-2`}>
+                  <FontAwesomeIcon icon={faTrashCan} />
                 </button>
               </td>
             </tr>

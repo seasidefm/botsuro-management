@@ -17,14 +17,6 @@ export default function RootLayout(props: {
 }) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
-          integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm"
-          crossOrigin="anonymous"
-        ></link>
-      </head>
       <body className={inter.className + " min-h-screen"}>
         <div className={`flex flex-col h-screen`}>
           <header>
