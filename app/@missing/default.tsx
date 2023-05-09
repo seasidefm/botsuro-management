@@ -1,7 +1,7 @@
 import { MissingSongTable } from "./Table";
 import { DBInteractor } from "@/lib/server";
 
-export const revalidate = 600; // revalidate every 5 minutes
+export const revalidate = 5; // revalidate every 5 seconds
 
 const getInitialSongs = async function () {
   const db = new DBInteractor();
